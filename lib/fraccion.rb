@@ -1,5 +1,4 @@
 require "./lib/gcd.rb"
-require "./lib/comparable.rb"
 
 class Racional
 
@@ -56,7 +55,7 @@ class Racional
 	end
 
 	def ==(fr2)
-		return @n = fr2.n && @d = fr2.d if fr2.instance_of? Fraccion 
+		return @n = fr2.n && @d = fr2.d if fr2.instance_of? Racional 
 		false
 	end
 
@@ -77,34 +76,40 @@ class Racional
 	end
 
 	def reciprocal
-		Fraccion.new(@d, @n)
+		Racional.new(@d, @n)
 	end
 
 	def -@
-		Fraccion.new(-@n, -@d)
+		Racional.new(-@n, -@d)
 	end
 
 	def +(fr2)
 		d = @d * fr2.d
-		Fraccion.new(((d/@d) * @n) + ((d/fr2.d) * fr2.n), d).reduce
+		Racional.new(((d/@d) * @n) + ((d/fr2.d) * fr2.n), d).reduce
 	end	
 	
 	def -(fr2)
 		d = @d * fr2.d
-		Fraccion.new(((d/@d) * @n) - ((d/fr2.d) * fr2.n), d).reduce	
+		Racional.new(((d/@d) * @n) - ((d/fr2.d) * fr2.n), d).reduce	
 	end
 
 	def *(fr2)
-		Fraccion.new(@n * fr2.n, @d * fr2.d).reduce
+		Racional.new(@n * fr2.n, @d * fr2.d).reduce
 	end
 
 	def /(fr2)
-		Fraccion.new(@n * fr2.d, @d * fr2.n).reduce
+		Racional.new(@n * fr2.d, @d * fr2.n).reduce
 	end
 
 	def %(fr2)
-		Fraccion.new(@n % @d, fr2.n % fr2.d).reduce
+		Racional.new(@n % @d, fr2.n % fr2.d).reduce
 	end
+
+	module Comparable
+	        def Comparable.<=>(fr2)
+                	return Racional.new(@n, @d) <=> Racional.new(fr2.n, fr2.d)
+	        end
+end
 
 end	
 

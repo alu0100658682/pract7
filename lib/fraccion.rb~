@@ -1,7 +1,7 @@
 require "./lib/gcd.rb"
 require "./lib/comparable.rb"
 
-class Fraccion
+class Racional
 
 	include Comparable
 
@@ -105,6 +105,12 @@ class Fraccion
 	def %(fr2)
 		Fraccion.new(@n % @d, fr2.n % fr2.d).reduce
 	end
+
+	module Comparable
+	        def Comparable.<=>(fr2)
+                	return Fraccion.new(@n, @d) <=> Fraccion.new(fr2.n, fr2.d)
+	        end
+end
 
 end	
 
