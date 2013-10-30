@@ -1,5 +1,5 @@
-practica7
-Hecha por:
-Miguel Aurelio García González 
-Daura Hernández Díaz
+practica 7
+Realizada por:
+Aarón José Vera Cerdeña
+Jacobo Saavedra Valdés
 
