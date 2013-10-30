@@ -1,6 +1,6 @@
 
 require "rspec"
-require "./fraccion.rb"
+require "./racional.rb"
 
 describe Fraccion do
 

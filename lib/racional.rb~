@@ -45,20 +45,21 @@ class Racional
 		@denominador = b
 		self.to_s
 	end
-
+####String
 	def to_s
 		"#{@numerador}/#{@denominador}"
 	end
-
+#####Flotante
 	def to_f
 		(n.to_f/d.to_f)
 	end
-
+####=
 	def ==(fr2)
 		return @numerador = fr2.n && @denominador = fr2.d if fr2.instance_of? Racional 
 		false
 	end
 
+####Absoluto
 	def abs
 		a = @numerador
 		b = @denominador
@@ -75,32 +76,39 @@ class Racional
 		@denominador = b
 	end
 
+####Reciproca
 	def reciprocal
 		Racional.new(@denominador, @numerador)
 	end
 
+###Inversa
 	def -@
 		Racional.new(-@numerador, -@denominador)
 	end
 
+#####Suma
 	def +(fr2)
 		d = @denominador * fr2.d
 		Racional.new(((d/@denominador) * @numerador) + ((d/fr2.d) * fr2.n), d).reduce
 	end	
-	
+
+#####Resta	
 	def -(fr2)
 		d = @denominador * fr2.d
 		Racional.new(((d/@denominador) * @numerador) - ((d/fr2.d) * fr2.n), d).reduce	
 	end
 
+#####Producto
 	def *(fr2)
 		Racional.new(@numerador * fr2.n, @denominador * fr2.d).reduce
 	end
 
+#####Division
 	def /(fr2)
 		Racional.new(@numerador * fr2.d, @denominador * fr2.n).reduce
 	end
 
+#####Resto
 	def %(fr2)
 		Racional.new(@numerador % @denominador, fr2.n % fr2.d).reduce
 	end
