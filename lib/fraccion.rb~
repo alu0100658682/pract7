@@ -1,7 +1,7 @@
 require "./lib/gcd.rb"
 
 
-class Fraccion
+class Racional
 
 	include Comparable
 
@@ -56,7 +56,7 @@ class Fraccion
 	end
 
 	def ==(other)
-		return @numerador = other.numerador && @denominador = other.denominador if other.instance_of? Fraccion 
+		return @numerador = other.numerador && @denominador = other.denominador if other.instance_of? Racional 
 		false
 	end
 
@@ -77,40 +77,40 @@ class Fraccion
 	end
 
 	def reciprocal
-		Fraccion.new(@denominador, @numerador)
+		Racional.new(@denominador, @numerador)
 	end
 
 	def -@
-		Fraccion.new(-@numerador, -@denominador)
+		Racional.new(-@numerador, -@denominador)
 	end
 
 	def +(other)
 		denominador = @denominador * other.denominador
-		Fraccion.new(((denominador/@denominador) * @numerador) + ((denominador/other.denominador) * other.numerador), denominador).reduce
+		Racional.new(((denominador/@denominador) * @numerador) + ((denominador/other.denominador) * other.numerador), denominador).reduce
 	end	
 	
 	def -(other)
 		denominador = @denominador * other.denominador
-		Fraccion.new(((denominador/@denominador) * @numerador) - ((denominador/other.denominador) * other.numerador), denominador).reduce	
+		Racional.new(((denominador/@denominador) * @numerador) - ((denominador/other.denominador) * other.numerador), denominador).reduce	
 	end
 
 	def *(other)
-		Fraccion.new(@numerador * other.numerador, @denominador * other.denominador).reduce
+		Racional.new(@numerador * other.numerador, @denominador * other.denominador).reduce
 	end
 
 	def /(other)
-		Fraccion.new(@numerador * other.denominador, @denominador * other.numerador).reduce
+		Racional.new(@numerador * other.denominador, @denominador * other.numerador).reduce
 	end
 
 	def %(other)
-		Fraccion.new(@numerador % @denominador, other.numerador % other.denominador).reduce
+		Racional.new(@numerador % @denominador, other.numerador % other.denominador).reduce
 	end
 
 	
 
 
 	def <=>(other)
-		return Fraccion.new(@numerador, @denominador) <=> Fraccion.new(other.numerador, other.denominador)
+		return Racional.new(@numerador, @denominador) <=> Racional.new(other.numerador, other.denominador)
 	end
 end
 
