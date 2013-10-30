@@ -1,28 +1,28 @@
 require "./lib/gcd.rb"
+require "./lib/comparable.rb"
 
-
-class Racional
+class Fraccion
 
 	include Comparable
 
-	attr_accessor :numerador, :denominador
+	attr_accessor :n, :d
 
-	def initialize(numerador, denominador)
-		@numerador = numerador
-		@denominador = denominador
+	def initialize(n, d)
+		@n = n
+		@d = d
 	end
 
 	def num
-		@numerador
+		@n
 	end
 
 	def denom
-		@denominador
+		@d
 	end
 
 	def reduce
-		a = @numerador
-		b = @denominador
+		a = @n
+		b = @d
 		
 		if a < b
 			x = a
@@ -42,27 +42,27 @@ class Racional
 		end
 	end
 
-		@numerador = a
-		@denominador = b
+		@n = a
+		@d = b
 		self.to_s
 	end
 
 	def to_s
-		"#{@numerador}/#{@denominador}"
+		"#{@n}/#{@d}"
 	end
 
 	def to_f
-		(numerador.to_f/denominador.to_f)
+		(n.to_f/d.to_f)
 	end
 
-	def ==(other)
-		return @numerador = other.numerador && @denominador = other.denominador if other.instance_of? Racional 
+	def ==(fr2)
+		return @n = fr2.n && @d = fr2.d if fr2.instance_of? Fraccion 
 		false
 	end
 
 	def abs
-		a = @numerador
-		b = @denominador
+		a = @n
+		b = @d
 
 		if a < 0
 			a = a * -1
@@ -72,47 +72,39 @@ class Racional
 			b = b * -1
 		end
 		
-		@numerador = a 
-		@denominador = b
+		@n = a 
+		@d = b
 	end
 
 	def reciprocal
-		Racional.new(@denominador, @numerador)
+		Fraccion.new(@d, @n)
 	end
 
 	def -@
-		Racional.new(-@numerador, -@denominador)
+		Fraccion.new(-@n, -@d)
 	end
 
-	def +(other)
-		denominador = @denominador * other.denominador
-		Racional.new(((denominador/@denominador) * @numerador) + ((denominador/other.denominador) * other.numerador), denominador).reduce
+	def +(fr2)
+		d = @d * fr2.d
+		Fraccion.new(((d/@d) * @n) + ((d/fr2.d) * fr2.n), d).reduce
 	end	
 	
-	def -(other)
-		denominador = @denominador * other.denominador
-		Racional.new(((denominador/@denominador) * @numerador) - ((denominador/other.denominador) * other.numerador), denominador).reduce	
+	def -(fr2)
+		d = @d * fr2.d
+		Fraccion.new(((d/@d) * @n) - ((d/fr2.d) * fr2.n), d).reduce	
 	end
 
-	def *(other)
-		Racional.new(@numerador * other.numerador, @denominador * other.denominador).reduce
+	def *(fr2)
+		Fraccion.new(@n * fr2.n, @d * fr2.d).reduce
 	end
 
-	def /(other)
-		Racional.new(@numerador * other.denominador, @denominador * other.numerador).reduce
+	def /(fr2)
+		Fraccion.new(@n * fr2.d, @d * fr2.n).reduce
 	end
 
-	def %(other)
-		Racional.new(@numerador % @denominador, other.numerador % other.denominador).reduce
+	def %(fr2)
+		Fraccion.new(@n % @d, fr2.n % fr2.d).reduce
 	end
-
-	
-
-
-	def <=>(other)
-		return Racional.new(@numerador, @denominador) <=> Racional.new(other.numerador, other.denominador)
-	end
-end
 
 end	
 

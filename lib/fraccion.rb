@@ -1,7 +1,7 @@
 require "./lib/gcd.rb"
 require "./lib/comparable.rb"
 
-class Fraccion
+class Racional
 
 	include Comparable
 
