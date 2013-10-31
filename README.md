@@ -1,5 +1,5 @@
-Practica realizada por:
+Practica realizada por
 
 Aaron Jose Vera Cerdeña
 
-Jacobo Saavedra valdes
+Jacobo Saavedra Valdes
