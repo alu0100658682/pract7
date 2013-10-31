@@ -4,11 +4,11 @@ class Racional
 
 	include Comparable
 
-	attr_accessor :n, :d
+	attr_accessor :numerador, :denominador
 
-	def initialize(n, d)
-		@numerador = n
-		@denominador = d
+	def initialize(numerador, denominador)
+		@numerador = numerador
+		@denominador = denominador
 	end
 
 	def num
@@ -51,11 +51,11 @@ class Racional
 	end
 #####Flotante
 	def to_f
-		(n.to_f/d.to_f)
+		(numerador.to_f/denominador.to_f)
 	end
 ####=
 	def ==(fr2)
-		return @numerador = fr2.n && @denominador = fr2.d if fr2.instance_of? Racional 
+		return @numerador = fr2.numerador && @denominador = fr2.denominador if fr2.instance_of? Racional 
 		false
 	end
 
@@ -88,34 +88,34 @@ class Racional
 
 #####Suma
 	def +(fr2)
-		d = @denominador * fr2.d
-		Racional.new(((d/@denominador) * @numerador) + ((d/fr2.d) * fr2.n), d).reduce
+		denominador = @denominador * fr2.denominador
+		Racional.new(((denominador/@denominador) * @numerador) + ((denominador/fr2.denominador) * fr2.numerador), denominador).reduce
 	end	
 
 #####Resta	
 	def -(fr2)
-		d = @denominador * fr2.d
-		Racional.new(((d/@denominador) * @numerador) - ((d/fr2.d) * fr2.n), d).reduce	
+		denominador = @denominador * fr2.denominador
+		Racional.new(((denominador/@denominador) * @numerador) - ((denominador/fr2.denominador) * fr2.numerador), denominador).reduce	
 	end
 
 #####Producto
 	def *(fr2)
-		Racional.new(@numerador * fr2.n, @denominador * fr2.d).reduce
+		Racional.new(@numerador * fr2.numerador, @denominador * fr2.denominador).reduce
 	end
 
 #####Division
 	def /(fr2)
-		Racional.new(@numerador * fr2.d, @denominador * fr2.n).reduce
+		Racional.new(@numerador * fr2.denominador, @denominador * fr2.numerador).reduce
 	end
 
 #####Resto
 	def %(fr2)
-		Racional.new(@numerador % @denominador, fr2.n % fr2.d).reduce
+		Racional.new(@numerador % @denominador, fr2.numerador % fr2.denominador).reduce
 	end
 
 	module Comparable
 	        def Comparable.<=>(fr2)
-                	return Racional.new(@numerador, @denominador) <=> Racional.new(fr2.n, fr2.d)
+                	return Racional.new(@numerador, @denominador) <=> Racional.new(fr2.numerador, fr2.denominador)
 	        end
 end
 

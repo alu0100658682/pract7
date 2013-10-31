@@ -1,4 +1,4 @@
-require "./fraccion.rb"
+require "./racional.rb"
 	
 	fr1 = Fraccion.new(8, 16)
 	

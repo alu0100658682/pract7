@@ -12,11 +12,11 @@ require "./racional.rb"
 	
 	puts "El denominador de la fraccion fr2 es: #{fr2.d}"	
 
-	puts "La fracción fr1 se muestra por pantalla :  #{fr1}"
+	puts "La fraccion fr1 se muestra por pantalla :  #{fr1}"
 
-	puts "La fracción fr2 se muestra por pantalla :  #{fr2}"
+	puts "La fraccion fr2 se muestra por pantalla :  #{fr2}"
 
-	puts "fracción1: #{fr1}, vale: #{fr1.to_f}"
+	puts "fraccion1: #{fr1}, vale: #{fr1.to_f}"
 
 	puts "El valor absoluto de fr1: #{fr1.abs}"
 

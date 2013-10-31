@@ -81,7 +81,7 @@ class Racional
 		Racional.new(@denominador, @numerador)
 	end
 
-###Inversa
+####Opuesta
 	def -@
 		Racional.new(-@numerador, -@denominador)
 	end
