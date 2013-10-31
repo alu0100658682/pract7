@@ -1,8 +1,5 @@
-practica 7
+Practica realizada por:
 
-Realizada por:
+Aaron Jose Vera Cerdeña
 
-Aarón José Vera Cerdeña
-
-Jacobo Saavedra Valdés
-
+Jacobo Saavedra valdes
